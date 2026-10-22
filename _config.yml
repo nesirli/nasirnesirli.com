@@ -1,0 +1,102 @@
+# Site config for nasirnesirli.com (GitHub Pages + Minimal Mistakes).
+# Changes here need a restart of `bundle exec jekyll serve` to show locally.
+
+remote_theme: "mmistakes/minimal-mistakes@4.28.1"
+minimal_mistakes_skin: "default" # also try "air", "mint" or "contrast"
+
+# ── Site ─────────────────────────────────────────────────────────────────────
+locale: "en-US"
+title: "Nasir Nesirli"
+title_separator: "|"
+name: "Nasir Nesirli"
+description: "Clinical bioinformatics: benchmarked genomics pipelines, clinical-style reports, and machine learning on genomic and microbial data."
+url: "https://nasirnesirli.com"
+baseurl: ""
+repository: "nesirli/nasirnesirli.com"
+words_per_minute: 200
+enable_copy_code_button: true
+search: true
+timezone: Europe/Istanbul
+
+# ── Author sidebar ───────────────────────────────────────────────────────────
+author:
+  name: "Nasir Nesirli"
+  avatar: "/assets/images/profile.png"
+  bio: "Clinical genomics pipelines, from raw reads to benchmarked variants and finished reports. Ten years in clinical labs before that."
+  location: "Ankara, Türkiye"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/nesirli"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/nasirnesirli/"
+
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/nesirli"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/nasirnesirli/"
+
+# ── Build ────────────────────────────────────────────────────────────────────
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+permalink: /blog/:title/
+
+include:
+  - _pages
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .jekyll-cache
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-include-cache
+
+# ── Collections ──────────────────────────────────────────────────────────────
+collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:name/
+
+# ── Front matter defaults ────────────────────────────────────────────────────
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      show_date: true
+      share: true
+      related: true
+      toc: true
+      toc_sticky: true
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: true
+      share: false
